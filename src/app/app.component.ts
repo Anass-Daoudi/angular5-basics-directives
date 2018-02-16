@@ -1,0 +1,28 @@
+import {Component} from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  hidden: boolean;
+  numbers: number[] = [];
+
+  constructor() {
+    this.hidden = false;
+  }
+
+  isHidden(): boolean {
+    return this.hidden;
+  }
+
+  onReverseHidden(): void {
+    this.hidden = !this.isHidden();
+    this.numbers.push(this.numbers.length === 0 ? 0 : 1 + this.numbers[this.numbers.length - 1]);
+  }
+
+  getNumbers(): number[] {
+    return this.numbers;
+  }
+}
