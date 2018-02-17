@@ -7,10 +7,13 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
   hidden: boolean;
-  numbers: number[] = [];
+  numbers: number[];
+  clicksTimes: Date[];
 
   constructor() {
     this.hidden = false;
+    this.numbers = [];
+    this.clicksTimes = [];
   }
 
   isHidden(): boolean {
@@ -20,9 +23,14 @@ export class AppComponent {
   onReverseHidden(): void {
     this.hidden = !this.isHidden();
     this.numbers.push(this.numbers.length === 0 ? 0 : 1 + this.numbers[this.numbers.length - 1]);
+    this.clicksTimes.push(new Date());
   }
 
   getNumbers(): number[] {
     return this.numbers;
+  }
+
+  getClicksTimes(): Date[] {
+    return this.clicksTimes;
   }
 }

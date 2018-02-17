@@ -27,12 +27,17 @@
         <select>
           <option
             *ngFor="let number of this.getNumbers()"
-            [ngStyle]="{backgroundColor:number<4?'white':'blue'}"
-            [ngClass]="{whiteColor:number<4?false:true}"
+            [ngStyle]="{backgroundColor:number<4?'transparent':'blue'}"
+            [ngClass]="{'white-color':number<4?false:true}"
           > {{number}}
           </option>
         </select>
       </div>
+      <div
+        *ngFor="let clickTime of this.getClicksTimes(); let i = index"
+        [innerText]="clickTime"
+        [ngStyle]="{backgroundColor:i<4?'transparent':'blue'}"
+        [ngClass]="{'white-color':i<4?false:true}"></div>
     </div>
   </div>
 </div>
